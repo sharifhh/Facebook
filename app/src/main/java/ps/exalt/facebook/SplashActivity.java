@@ -17,8 +17,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-    /*    new Handler().postDelayed(new Runnable() {
+    new Handler().postDelayed(new Runnable() {
 
 
 
@@ -27,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
              * want to show case your app logo / company
              */
 
-         /*   @Override
+          @Override
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
@@ -40,6 +39,6 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
-    }*/}
+    }
 
 }

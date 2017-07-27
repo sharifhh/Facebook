@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ps.exalt.facebook.API.Post;
 
 
 public class PostFragment extends Fragment implements RecyclerViewAdapter.RecyclerViewAdapterCalls {
