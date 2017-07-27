@@ -63,6 +63,16 @@ public class DataRepository {
         return usersObservable;
     }
 
+    public Observable<User> getUser(String username) {
+        Observable<User> userObservable;
+        if (true) {
+            userObservable = remoteDataSource.getUser(username);
+        } else {
+            userObservable = localDataSource.getUser(username);
+        }
+        return userObservable;
+    }
+
     public void destroyInstance() {
         dataRepository = null;
     }

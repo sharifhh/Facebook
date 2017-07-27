@@ -23,4 +23,6 @@ public abstract class DataSource {
 
     public abstract Observable<List<User>> getUsers();
 
+    public abstract Observable<User> getUser(String username);
+
 }

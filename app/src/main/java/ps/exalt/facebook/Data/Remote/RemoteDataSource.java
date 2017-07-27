@@ -43,20 +43,18 @@ public class RemoteDataSource extends DataSource {
 
     @Override
     public Observable<List<Post>> getPosts(int page) {
-        Observable<List<Post>> postsObservable = api.getPosts();
-        postsObservable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        return postsObservable;
+        return api.getPosts();
     }
 
     @Override
     public Observable<List<User>> getUsers() {
-        Observable<List<User>> usersObservable = api.getUsers();
-        usersObservable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        return usersObservable;
+        return api.getUsers();
     }
 
+    @Override
+    public Observable<User> getUser(String username) {
+        return api.getUser(username);
+    }
     public static RemoteDataSource getInstance() {
         if (remoteDataSource == null) {
             remoteDataSource = new RemoteDataSource();

@@ -15,6 +15,8 @@ public interface RetrofitInterface {
 
     @GET("/exalt/users")
     Observable<List<User>> getUsers();
+    @GET("/exalt/users/username/{user}")
+    Observable<User> getUser(@Path("user") String username);
     @GET("/exalt/posts")
     Observable<List<Post>> getPosts();
     @GET("/exalt/posts/{user}")

@@ -5,8 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import java.util.List;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -25,23 +23,23 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         DataRepository dataRepository = new DataRepository(RemoteDataSource.getInstance(), LocalDataSource.getInstance());
-        dataRepository.getUsers()
+        dataRepository.getUser("shar")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<User>>() {
+                .subscribe(new Observer<User>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(List<User> users) {
-                        Log.d("last name is : ", users.get(0).getLastName());
+                    public void onNext(User user) {
+                        Log.d("last name is ", user.getLastName());
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("Error", e.getMessage());
+                        Log.e("Error", e.getMessage());
                     }
 
                     @Override
