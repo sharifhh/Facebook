@@ -1,34 +1,31 @@
 package ps.exalt.facebook.Data;
 
-import android.content.Context;
-
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.Comment;
+import ps.exalt.facebook.API.Comment;
+import ps.exalt.facebook.API.Post;
+import ps.exalt.facebook.API.User;
 import ps.exalt.facebook.Data.Local.LocalDataSource;
-import ps.exalt.facebook.Post;
-import ps.exalt.facebook.User;
+import ps.exalt.facebook.Data.Remote.RemoteDataSource;
 
 /**
  * Created by Sharif on 7/26/2017.
  */
 
 public class DataRepository {
+    private static DataRepository dataRepository;
     private DataSource remoteDataSource;
     private DataSource localDataSource;
 
-    private static DataRepository dataRepository;
-
-    public DataRepository(DataSource remoteDataSource, DataSource localDataSource) {
-        this.remoteDataSource = remoteDataSource;
-        this.localDataSource = localDataSource;
+    private DataRepository() {
+        this.remoteDataSource = RemoteDataSource.getInstance();
+        this.localDataSource = LocalDataSource.getInstance();
     }
 
-    public static DataRepository getInstance(DataSource remoteDataSource,
-                                                          DataSource localDataSource) {
+    public static DataRepository getInstance() {
         if (dataRepository == null) {
-            dataRepository = new DataRepository(remoteDataSource, localDataSource);
+            dataRepository = new DataRepository();
         }
         return dataRepository;
     }

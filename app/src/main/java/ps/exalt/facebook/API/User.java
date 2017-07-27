@@ -1,4 +1,4 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.API;
 
 import java.sql.Date;
 

@@ -2,12 +2,14 @@ package ps.exalt.facebook;
 
 // helllllllllllllokk
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements HomeView{
+import ps.exalt.facebook.API.Post;
+
+public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

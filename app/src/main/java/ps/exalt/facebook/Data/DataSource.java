@@ -3,9 +3,9 @@ package ps.exalt.facebook.Data;
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.Comment;
-import ps.exalt.facebook.Post;
-import ps.exalt.facebook.User;
+import ps.exalt.facebook.API.Comment;
+import ps.exalt.facebook.API.Post;
+import ps.exalt.facebook.API.User;
 
 /**
  * Created by Sharif on 7/26/2017.

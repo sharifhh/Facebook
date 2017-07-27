@@ -9,9 +9,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import ps.exalt.facebook.API.User;
 import ps.exalt.facebook.Data.DataRepository;
-import ps.exalt.facebook.Data.Local.LocalDataSource;
-import ps.exalt.facebook.Data.Remote.RemoteDataSource;
 
 /**
  * Created by Sharif on 7/26/2017.
@@ -22,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        DataRepository dataRepository = new DataRepository(RemoteDataSource.getInstance(), LocalDataSource.getInstance());
+        DataRepository dataRepository = DataRepository.getInstance();
         dataRepository.getUser("shar")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

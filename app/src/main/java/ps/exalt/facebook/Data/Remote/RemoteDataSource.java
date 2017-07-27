@@ -5,11 +5,11 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import ps.exalt.facebook.Comment;
+import ps.exalt.facebook.API.Comment;
+import ps.exalt.facebook.API.Post;
+import ps.exalt.facebook.API.User;
 import ps.exalt.facebook.Data.DataSource;
-import ps.exalt.facebook.Post;
 import ps.exalt.facebook.RetrofitInterface;
-import ps.exalt.facebook.User;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -19,9 +19,9 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
  */
 
 public class RemoteDataSource extends DataSource {
+    private static RemoteDataSource remoteDataSource;
     private Retrofit retrofit;
     private RetrofitInterface api;
-    private static RemoteDataSource remoteDataSource;
 
     private RemoteDataSource() {
         super();
@@ -31,6 +31,13 @@ public class RemoteDataSource extends DataSource {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         api = retrofit.create(RetrofitInterface.class);
+    }
+
+    public static RemoteDataSource getInstance() {
+        if (remoteDataSource == null) {
+            remoteDataSource = new RemoteDataSource();
+        }
+        return remoteDataSource;
     }
 
     @Override
@@ -54,12 +61,6 @@ public class RemoteDataSource extends DataSource {
     @Override
     public Observable<User> getUser(String username) {
         return api.getUser(username);
-    }
-    public static RemoteDataSource getInstance() {
-        if (remoteDataSource == null) {
-            remoteDataSource = new RemoteDataSource();
-        }
-        return remoteDataSource;
     }
 
 }
