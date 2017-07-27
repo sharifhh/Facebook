@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -65,9 +66,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         @BindView(R.id.comment_count_text)
         TextView count_comment;
         @BindView(R.id.like_btn)
-        Button likes;
+        ImageButton likes;
         @BindView(R.id.comment_btn)
-        Button comments;
+        ImageButton comments;
         @BindView(R.id.profile_image)
         CircleImageView pic;
 

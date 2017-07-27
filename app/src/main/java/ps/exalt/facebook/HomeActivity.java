@@ -3,6 +3,7 @@ package ps.exalt.facebook;
 // helllllllllllllokk
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -34,15 +35,15 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("home");
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setText("home");
-        tabLayout.getTabAt(1).setText("friend");
-        tabLayout.getTabAt(2).setText("notif");
-
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_public_black_24dp);
     }
 
 
