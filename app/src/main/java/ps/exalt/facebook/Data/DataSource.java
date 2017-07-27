@@ -2,33 +2,25 @@ package ps.exalt.facebook.Data;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import ps.exalt.facebook.Comment;
+import ps.exalt.facebook.Post;
+import ps.exalt.facebook.User;
 
 /**
  * Created by Sharif on 7/26/2017.
  */
 
 public abstract class DataSource {
-    public interface GetPhotosCallback {
-        void onSuccess(List<Photo> photos);
 
-        void onFailure(Throwable throwable);
-
-        void onNetworkFailure();
-
+    public DataSource() {
     }
 
-    public interface GetCommentsCallback {
 
-        void onSuccess(List<Comment> comments);
+    public abstract Observable<List<Comment>> getComments(long postId);
 
-        void onFailure(Throwable throwable);
+    public abstract Observable<List<Post>> getPosts(int page);
 
-        void onNetworkFailure();
+    public abstract Observable<List<User>> getUsers();
 
-    }
-
-    public abstract void getPhotos(int page, GetPhotosCallback callback);
-
-    public abstract void getComments(String photoId, GetCommentsCallback callback);
 }

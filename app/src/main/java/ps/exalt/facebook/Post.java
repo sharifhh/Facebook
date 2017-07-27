@@ -5,4 +5,7 @@ package ps.exalt.facebook;
  */
 
 public class Post {
+    public long getId() {
+        return 0;
+    }
 }
