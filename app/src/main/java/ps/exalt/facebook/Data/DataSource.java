@@ -17,11 +17,11 @@ public abstract class DataSource {
     }
 
 
-    public abstract Observable<List<Comment>> getComments(long postId);
+   public abstract Observable<List<Comment>> getComments(long postId);
 
-    public abstract Observable<List<Post>> getPosts(int page);
+  public abstract Observable<List<Post>> getPosts(int page);
 
-    public abstract Observable<List<User>> getUsers();
+  public abstract Observable<List<User>> getUsers();
 
     public abstract Observable<User> getUser(String username);
 
