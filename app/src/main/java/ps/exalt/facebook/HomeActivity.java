@@ -26,20 +26,10 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;
-    @BindView(R.id.drawer_layout)
-    DrawerLayout drawer;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+
     @BindView(R.id.tabs)
     TabLayout tabLayout;
-    @BindView(R.id.floatingActionButton2)
-    FloatingActionButton fab;
-    /*  @BindView(R.id.post)
-      Button post;
-      @BindView(R.id.canclee)
-      ImageButton canlcee;
-      @BindView(R.id.editText2)
-      EditText posst;*/
+
     ViewPagerAdapter viewPagerAdapter;
 
     @Override
@@ -48,9 +38,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
-        setSupportActionBar(toolbar);
+       /* setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setTitle("home");
+        toolbar.setTitle("home");*/
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
 
@@ -58,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_public_black_24dp);
-        tabLayout.setOnTabSelectedListener(
+        tabLayout.addOnTabSelectedListener(
                 new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
 
                     @Override
@@ -84,33 +74,6 @@ public class HomeActivity extends AppCompatActivity {
         );
     }
 
-    @OnClick(R.id.floatingActionButton2)
-    void fab() {
 
-        AlertDialog.Builder faceBuilder = new AlertDialog.Builder(HomeActivity.this);
-        View view = getLayoutInflater().inflate(R.layout.mydil, null);
-        faceBuilder.setView(view);
-        faceBuilder.setPositiveButton("Post", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-        faceBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        AlertDialog dialog = faceBuilder.create();
-        dialog.show();
-
-
-
-      /*  Intent intent = new Intent(HomeActivity.this, SplashActivity.class);
-        startActivity(intent);
-    }*/
-    }
 
 }

@@ -17,29 +17,12 @@
         android:fitsSystemWindows="true"
         >
 
-        <android.support.v4.widget.DrawerLayout
-            android:id="@+id/drawer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <!-- The main content view -->
-            <!-- The navigation drawer -->
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.design.widget.AppBarLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/appBarLayout">
 
-                    <android.support.v7.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="#0D47A1"
-                        app:layout_scrollFlags="scroll|enterAlways" />
-
-                </android.support.design.widget.AppBarLayout>
 
 
                 <android.support.v4.view.ViewPager
@@ -54,21 +37,12 @@
                         android:layout_gravity="bottom"
                         app:tabMode="fixed" />
                 </android.support.v4.view.ViewPager>
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/floatingActionButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_edit_black_24dp"
-                    app:backgroundTint="@android:color/background_light"
-                    app:rippleColor="@android:color/background_light"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true" />
 
 
             </RelativeLayout>
 
 
-        </android.support.v4.widget.DrawerLayout>
+
 
 
     </android.support.design.widget.CoordinatorLayout >
