@@ -43,4 +43,9 @@ public class LocalDataSource extends DataSource {
     public Observable<User> getUser(String username) {
         return null;
     }
+
+    @Override
+    public Observable<Post> postPost(String username, Post post) {
+        return null;
+    }
 }

@@ -16,6 +16,7 @@ public class HomePresenter {
 
     public void init() {
         //Get data Using Retrofit and Rx.
+        //homeView.onGettingPostsCompleted();
     }
 
 
