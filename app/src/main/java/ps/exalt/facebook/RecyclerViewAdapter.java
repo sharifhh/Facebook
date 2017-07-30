@@ -1,8 +1,12 @@
 package ps.exalt.facebook;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import ps.exalt.facebook.API.Post;
 
@@ -45,26 +50,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-      holder.user_name.setText("EE");//posts.get(position).getName());
-       holder.date.setText("333");//posts.get(position).getEmail());
+      holder.user_name.setText("Mais abu helou");//posts.get(position).getName());
+       holder.date.setText("2 hours ago ");//posts.get(position).getDate());
+        holder.post.setText("Welcome all");
     //    Picasso.with(context).load("http://i.imgut.com/DvpvklR.png").transform(new CropCircleTransformation()).into(holder.pic);
      //   holder.icon.setImageResource(contacts.get(position).getFavIcon());
     }
 
     @Override
     public int getItemCount() {
-        return 5;//contacts.size();
+        return 10;//contacts.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.txt_name)
         TextView user_name;
         @BindView(R.id.txt_date)
         TextView date;
-        @BindView(R.id.count_like_text)
-        TextView count_liek;
-        @BindView(R.id.comment_count_text)
-        TextView count_comment;
+        @BindView(R.id.post_area)
+        TextView post;
+
         @BindView(R.id.like_btn)
         ImageButton likes;
         @BindView(R.id.comment_btn)
@@ -79,11 +84,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }
 
-        @Override
-        public void onClick(View view) {
-
+        @OnClick(R.id.like_btn)
+        void likess() {
+            // Click action
+            likes.setColorFilter(Color.BLUE);
+        /*Intent intent = new Intent(HomeActivity.this, SplashActivity.class);
+        startActivity(intent);*/
         }
+
     }
+
+
 
     public interface RecyclerViewAdapterCalls {
     //    void onFavouriteButtonClicked(Contact contact);
