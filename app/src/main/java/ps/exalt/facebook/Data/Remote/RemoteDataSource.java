@@ -63,4 +63,9 @@ public class RemoteDataSource extends DataSource {
         return api.getUser(username);
     }
 
+    @Override
+    public Observable<Post> postPost(String username,Post post) {
+       return api.postPost(username,post);
+    }
+
 }

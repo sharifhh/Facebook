@@ -43,9 +43,9 @@ public class DataRepository {
     public Observable<List<Comment>> getComments(final Post post) {
         Observable<List<Comment>> commentsObservable;
         if (true) {
-            commentsObservable = remoteDataSource.getComments(post.getId());
+            commentsObservable = remoteDataSource.getComments(0);
         } else {
-            commentsObservable = localDataSource.getComments(post.getId());
+            commentsObservable = localDataSource.getComments(0);
         }
         return commentsObservable;
     }
@@ -68,6 +68,16 @@ public class DataRepository {
             userObservable = localDataSource.getUser(username);
         }
         return userObservable;
+    }
+
+    public Observable<Post> postPost(String username, Post post) {
+        Observable<Post> postObservable;
+        if (true) {
+            postObservable = remoteDataSource.postPost(username, post);
+        } else {
+            postObservable = localDataSource.postPost(username, post);
+        }
+        return postObservable;
     }
 
     public void destroyInstance() {

@@ -8,7 +8,9 @@ import ps.exalt.facebook.API.CommentLike;
 import ps.exalt.facebook.API.Post;
 import ps.exalt.facebook.API.PostLike;
 import ps.exalt.facebook.API.User;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -39,4 +41,6 @@ public interface RetrofitInterface {
     @GET("/exalt/commentlikes/{commentID}")
     Observable<List<CommentLike>> getCommentLikes(@Path("commentID") Long commentID);
 
+    @POST("/exalt/users/{user}/posts")
+    Observable<Post> postPost(@Path("user") String username,@Body Post post);
 }
