@@ -91,10 +91,20 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/ic_comment_black_24dp" />
+                android:src="@drawable/ic_comment_black_24dp" /><![CDATA[
+
             />
 
+        ]]>
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/close_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            card_view:srcCompat="@drawable/ic_close_black_24dp" />
 
 
     </RelativeLayout>

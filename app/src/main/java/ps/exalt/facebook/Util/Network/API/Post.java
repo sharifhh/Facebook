@@ -10,6 +10,7 @@ public class Post {
     long timeCreation;
     long postid;
 
+
     public void setPostid(long postid) {
         this.postid = postid;
     }

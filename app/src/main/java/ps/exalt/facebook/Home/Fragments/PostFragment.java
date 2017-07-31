@@ -1,12 +1,9 @@
 package ps.exalt.facebook.Home.Fragments;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,29 +15,33 @@ import android.view.animation.DecelerateInterpolator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import ps.exalt.facebook.Util.Network.API.Post;
 import ps.exalt.facebook.Home.Util.HidingScroling;
 import ps.exalt.facebook.Home.Util.HomeRecyclerViewAdapter;
 import ps.exalt.facebook.R;
+import ps.exalt.facebook.Util.Network.API.Post;
 
 
 public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.RecyclerViewAdapterCalls {
 
+    private boolean loading = true;
+    private Random random;
     public static final String KEY_POSITION = "KEY_POSITION";
+    int pastVisiblesItems, visibleItemCount, totalItemCount;
 
     @BindView(R.id.recycler_view1)
-    RecyclerView  recyclerView;
+    RecyclerView recyclerView;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.floatingActionButton2)
-    FloatingActionButton fab;
-    List<Post> posts = new ArrayList<>();
+    @BindView(R.id.app)
+    AppBarLayout tool;
+
+    static List<Post> posts = new ArrayList<>();
+
     HomeRecyclerViewAdapter rvAdapter;
-    ContactsFragmentCallbacks callbacks;
 
     public PostFragment() {
         // Required empty public constructor
@@ -48,7 +49,7 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
 
     public static PostFragment newInstance(int position, List<Post> posts) {
         PostFragment Myposts = new PostFragment();
-       Myposts.posts = posts;
+        Myposts.posts = posts;
         return Myposts;
     }
 
@@ -61,19 +62,11 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
         return myView;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (getActivity() instanceof ContactsFragmentCallbacks){
-            callbacks = (ContactsFragmentCallbacks) getActivity();
-        }
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        rvAdapter = new HomeRecyclerViewAdapter(getActivity(),posts, this);
+        rvAdapter = new HomeRecyclerViewAdapter(getActivity(), posts, this);
         recyclerView.setAdapter(rvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnScrollListener(new HidingScroling() {
@@ -81,11 +74,13 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
             public void onHide() {
                 hideViews();
             }
+
             @Override
             public void onShow() {
                 showViews();
             }
         });
+
     }
 
 
@@ -94,46 +89,18 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
     }
 
 
-    public interface ContactsFragmentCallbacks {
-        void onFavouriteButtonClicked(Post posts);
-    }
     private void hideViews() {
 
         mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
-
+        tool.animate().translationY(-tool.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
     }
 
     private void showViews() {
         mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+        tool.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
 
     }
-    @OnClick(R.id.floatingActionButton2)
-    void fab() {
-
-        AlertDialog.Builder faceBuilder = new AlertDialog.Builder(getContext());
-        View view = getLayoutInflater().inflate(R.layout.mydil, null);
-        faceBuilder.setView(view);
-        faceBuilder.setPositiveButton("Post", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-               // Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-               // startActivity(intent);
-            }
-        });
-        faceBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        AlertDialog dialog = faceBuilder.create();
-        dialog.show();
 
 
-
-      /*  Intent intent = new Intent(HomeActivity.this, SplashActivity.class);
-        startActivity(intent);
-    }*/
-    }
 }

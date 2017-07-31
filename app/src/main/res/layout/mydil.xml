@@ -9,25 +9,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Creat new post"
+        android:text="Do you want to hide this post ?"
         android:textAlignment="textStart"
         android:textColor="@color/mycolor"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:textStyle="bold" />
 
 </RelativeLayout>
