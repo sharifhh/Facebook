@@ -1,25 +1,22 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home;
 
-// helllllllllllllokk
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.graphics.Color;
-        import android.graphics.PorterDuff;
-        import android.os.Bundle;
-        import android.support.design.widget.FloatingActionButton;
-        import android.support.design.widget.TabLayout;
-        import android.support.v4.view.ViewPager;
-        import android.support.v4.widget.DrawerLayout;
-        import android.support.v7.app.AlertDialog;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.Toolbar;
-        import android.view.View;
-
-        import butterknife.BindView;
-        import butterknife.ButterKnife;
-        import butterknife.OnClick;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import ps.exalt.facebook.Home.Util.HomeViewPagerAdapter;
+import ps.exalt.facebook.R;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     @BindView(R.id.floatingActionButton2)
     FloatingActionButton fab;
 
-    ViewPagerAdapter viewPagerAdapter;
+    HomeViewPagerAdapter homeViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +40,12 @@ public class HomeActivity extends AppCompatActivity {
        /* setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("home");*/
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
+        homeViewPagerAdapter = new HomeViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(homeViewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
-       tabLayout.getTabAt(0).getIcon().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(0).getIcon().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_public_black_24dp);
         tabLayout.addOnTabSelectedListener(
