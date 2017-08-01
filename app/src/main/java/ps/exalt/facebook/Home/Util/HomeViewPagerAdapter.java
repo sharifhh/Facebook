@@ -25,6 +25,7 @@ public class HomeViewPagerAdapter extends FragmentStatePagerAdapter {
         switch (position) {
             case 0:
                 PostFragment posts = new PostFragment();
+
                 return posts;
             case 1:
 

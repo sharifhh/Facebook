@@ -79,9 +79,10 @@
             <ImageButton
                 android:id="@+id/like_btn"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:background="@color/cardview_light_background"
                 android:src="@drawable/ic_thumb_up_black_24dp" />
             />
 
@@ -91,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:background="@color/cardview_light_background"
                 android:src="@drawable/ic_comment_black_24dp" /><![CDATA[
 
             />

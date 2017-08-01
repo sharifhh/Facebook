@@ -1,22 +1,26 @@
 package ps.exalt.facebook.Home.Util;
 
+import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import ps.exalt.facebook.CommentsActivity;
 import ps.exalt.facebook.Util.Network.API.Post;
 import ps.exalt.facebook.R;
+
 
 /**
  * Created by  Mais
@@ -29,7 +33,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
     RecyclerViewAdapterCalls callbacks;
 
-    
+
 
    public HomeRecyclerViewAdapter(Context context, List<Post> posts, RecyclerViewAdapterCalls callbacks) {
         this.context = context;
@@ -87,6 +91,17 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             likes.setColorFilter(Color.BLUE);
         /*Intent intent = new Intent(HomeActivity.this, SplashActivity.class);
         startActivity(intent);*/
+
+
+
+
+        }
+        @OnClick(R.id.comment_btn)
+        void setComments() {
+            Intent intent = new Intent(context, CommentsActivity.class);
+            context.startActivity(intent);
+
+
         }
 
     }

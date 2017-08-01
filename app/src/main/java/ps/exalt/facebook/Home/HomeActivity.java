@@ -11,10 +11,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ps.exalt.facebook.Home.Fragments.FriendFragment;
 import ps.exalt.facebook.Home.Util.HomeViewPagerAdapter;
 import ps.exalt.facebook.R;
 
@@ -36,7 +40,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.myanimation);
 
+        fab.setAnimation(myAnim);
        /* setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setTitle("home");*/
@@ -77,7 +83,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.floatingActionButton2)
     void fab() {
-
         AlertDialog.Builder faceBuilder = new AlertDialog.Builder(HomeActivity.this);
         View view = getLayoutInflater().inflate(R.layout.mydil, null);
         faceBuilder.setView(view);

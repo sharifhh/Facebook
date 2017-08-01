@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import ps.exalt.facebook.Home.HomeActivity;
 import ps.exalt.facebook.Login.LoginActivity;
 
 /**
@@ -18,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(() -> {
-            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+            Intent i = new Intent(SplashActivity.this, HomeActivity.class);
             startActivity(i);
             finish();
         }, SPLASH_TIME_OUT);
