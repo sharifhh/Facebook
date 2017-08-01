@@ -5,15 +5,14 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import ps.exalt.facebook.API.Comment;
-import ps.exalt.facebook.API.Post;
-import ps.exalt.facebook.API.User;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.DataSource;
-import ps.exalt.facebook.RetrofitInterface;
+import ps.exalt.facebook.Util.Network.RetrofitInterface;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-
+import ps.exalt.facebook.Util.Network.RxErrorHandlingCallAdapterFactory;
 /**
  * Created by Sharif on 7/26/2017.
  */
@@ -28,7 +27,7 @@ public class RemoteDataSource extends DataSource {
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.204.39:8080/")
                 .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create())
                 .build();
         api = retrofit.create(RetrofitInterface.class);
     }
@@ -58,14 +57,15 @@ public class RemoteDataSource extends DataSource {
         return api.getUsers();
     }
 
-    @Override
-    public Observable<User> getUser(String username) {
-        return api.getUser(username);
-    }
 
     @Override
     public Observable<Post> postPost(String username,Post post) {
        return api.postPost(username,post);
+    }
+
+    @Override
+    public Observable<Boolean> getToken(String username, String password) {
+        return api.getToken(username,password);
     }
 
 }

@@ -3,9 +3,9 @@ package ps.exalt.facebook.Data.Local;
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.API.Comment;
-import ps.exalt.facebook.API.Post;
-import ps.exalt.facebook.API.User;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.DataSource;
 
 /**
@@ -40,12 +40,12 @@ public class LocalDataSource extends DataSource {
     }
 
     @Override
-    public Observable<User> getUser(String username) {
+    public Observable<Post> postPost(String username, Post post) {
         return null;
     }
 
     @Override
-    public Observable<Post> postPost(String username, Post post) {
+    public Observable<Boolean> getToken(String username, String password) {
         return null;
     }
 }

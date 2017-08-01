@@ -1,8 +1,7 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home.Fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +22,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ps.exalt.facebook.API.Post;
-import ps.exalt.facebook.Data.Remote.HidingScroling;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Home.Util.HidingScroling;
+import ps.exalt.facebook.Home.Util.HomeRecyclerViewAdapter;
+import ps.exalt.facebook.R;
 
 
-public class PostFragment extends Fragment implements RecyclerViewAdapter.RecyclerViewAdapterCalls {
+public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.RecyclerViewAdapterCalls {
 
     public static final String KEY_POSITION = "KEY_POSITION";
 
@@ -39,7 +39,7 @@ public class PostFragment extends Fragment implements RecyclerViewAdapter.Recycl
     @BindView(R.id.floatingActionButton2)
     FloatingActionButton fab;
     List<Post> posts = new ArrayList<>();
-    RecyclerViewAdapter rvAdapter;
+    HomeRecyclerViewAdapter rvAdapter;
     ContactsFragmentCallbacks callbacks;
 
     public PostFragment() {
@@ -73,7 +73,7 @@ public class PostFragment extends Fragment implements RecyclerViewAdapter.Recycl
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        rvAdapter = new RecyclerViewAdapter(getActivity(),posts, this);
+        rvAdapter = new HomeRecyclerViewAdapter(getActivity(),posts, this);
         recyclerView.setAdapter(rvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnScrollListener(new HidingScroling() {

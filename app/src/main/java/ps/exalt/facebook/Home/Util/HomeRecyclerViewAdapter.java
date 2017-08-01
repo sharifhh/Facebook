@@ -1,15 +1,11 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home.Util;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,12 +15,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
-import ps.exalt.facebook.API.Post;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.R;
 
 /**
  * Created by  Mais
  */
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.MyViewHolder> {
 
     private final List<Post> posts;
     private LayoutInflater inflater;
@@ -34,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     
 
-   public RecyclerViewAdapter(Context context, List<Post> posts, RecyclerViewAdapterCalls callbacks) {
+   public HomeRecyclerViewAdapter(Context context, List<Post> posts, RecyclerViewAdapterCalls callbacks) {
         this.context = context;
         this.posts= posts;
         this.callbacks = callbacks;

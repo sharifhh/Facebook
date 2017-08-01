@@ -1,4 +1,4 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home.Fragments;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ps.exalt.facebook.R;
 
 
 public class NotificationFragment extends Fragment {

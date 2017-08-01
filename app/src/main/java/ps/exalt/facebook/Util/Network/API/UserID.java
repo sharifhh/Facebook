@@ -1,4 +1,4 @@
-package ps.exalt.facebook.API;
+package ps.exalt.facebook.Util.Network.API;
 
 /**
  * Created by Sharif on 7/27/2017.

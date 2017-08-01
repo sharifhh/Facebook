@@ -1,4 +1,4 @@
-package ps.exalt.facebook.Data.Remote;
+package ps.exalt.facebook.Home.Util;
 
 import android.support.v7.widget.RecyclerView;
 

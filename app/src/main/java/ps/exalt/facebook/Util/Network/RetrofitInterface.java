@@ -1,13 +1,13 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Util.Network;
 
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.API.Comment;
-import ps.exalt.facebook.API.CommentLike;
-import ps.exalt.facebook.API.Post;
-import ps.exalt.facebook.API.PostLike;
-import ps.exalt.facebook.API.User;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.CommentLike;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostLike;
+import ps.exalt.facebook.Util.Network.API.User;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -23,8 +23,8 @@ public interface RetrofitInterface {
     @GET("/exalt/users")
     Observable<List<User>> getUsers();
 
-    @GET("/exalt/users/username/{user}")
-    Observable<User> getUser(@Path("user") String username);
+    @GET("/exalt/users")
+    Observable<Boolean> getToken(@Body String username,@Body String password);
 
     @GET("/exalt/posts")
     Observable<List<Post>> getPosts();

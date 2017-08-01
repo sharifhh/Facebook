@@ -1,50 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context="ps.exalt.facebook.HomeActivity">
+    tools:context="ps.exalt.facebook.Home.HomeActivity">
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        tools:context="ps.exalt.facebook.HomeActivity"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        >
+        tools:context="ps.exalt.facebook.Home.HomeActivity">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <RelativeLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-
-
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewPager"
-                   android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TabLayout
-                        android:id="@+id/tabs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        app:tabMode="fixed" />
-                </android.support.v4.view.ViewPager>
-
-
-            </RelativeLayout>
-
-
-
-
-
-    </android.support.design.widget.CoordinatorLayout >
-
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:tabMode="fixed" />
+            </android.support.v4.view.ViewPager>
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </RelativeLayout>

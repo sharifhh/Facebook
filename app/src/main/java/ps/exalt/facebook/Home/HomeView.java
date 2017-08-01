@@ -1,8 +1,8 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home;
 
 import java.util.List;
 
-import ps.exalt.facebook.API.Post;
+import ps.exalt.facebook.Util.Network.API.Post;
 
 /**
  * Created by Sharif on 7/26/2017.

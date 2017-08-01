@@ -1,4 +1,4 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home;
 
 import ps.exalt.facebook.Data.DataRepository;
 
@@ -9,9 +9,10 @@ import ps.exalt.facebook.Data.DataRepository;
 public class HomePresenter {
 
     private HomeView homeView;
-
-    public HomePresenter(HomeView view, DataRepository dataRepository) {
+    private DataRepository dataRepository;
+    public HomePresenter(HomeView view) {
         this.homeView = view;
+        dataRepository = DataRepository.getInstance();
     }
 
     public void init() {

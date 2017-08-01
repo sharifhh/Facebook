@@ -3,9 +3,9 @@ package ps.exalt.facebook.Data;
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.API.Comment;
-import ps.exalt.facebook.API.Post;
-import ps.exalt.facebook.API.User;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.Local.LocalDataSource;
 import ps.exalt.facebook.Data.Remote.RemoteDataSource;
 
@@ -60,15 +60,7 @@ public class DataRepository {
         return usersObservable;
     }
 
-    public Observable<User> getUser(String username) {
-        Observable<User> userObservable;
-        if (true) {
-            userObservable = remoteDataSource.getUser(username);
-        } else {
-            userObservable = localDataSource.getUser(username);
-        }
-        return userObservable;
-    }
+
 
     public Observable<Post> postPost(String username, Post post) {
         Observable<Post> postObservable;
@@ -79,7 +71,15 @@ public class DataRepository {
         }
         return postObservable;
     }
-
+    public Observable<Boolean> getToken(String username,String password){
+        Observable<Boolean> tokenObservable;
+        if (true) {
+            tokenObservable = remoteDataSource.getToken(username, password);
+        } else {
+            tokenObservable = localDataSource.getToken(username, password);
+        }
+        return tokenObservable;
+    }
     public void destroyInstance() {
         dataRepository = null;
     }

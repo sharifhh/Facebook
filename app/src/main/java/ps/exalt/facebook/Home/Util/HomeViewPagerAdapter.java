@@ -1,20 +1,21 @@
-package ps.exalt.facebook;
+package ps.exalt.facebook.Home.Util;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import ps.exalt.facebook.FriendFragment;
+import ps.exalt.facebook.Home.Fragments.FriendFragment;
+import ps.exalt.facebook.Home.Fragments.NotificationFragment;
+import ps.exalt.facebook.Home.Fragments.PostFragment;
 
 /**
  * Created by Mais on 7/27/2017.
  */
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class HomeViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public HomeViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

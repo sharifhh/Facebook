@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="ps.exalt.facebook.PostFragment">
+    tools:context="ps.exalt.facebook.Home.Fragments.PostFragment">
 
 
     <android.support.v7.widget.Toolbar
