@@ -5,6 +5,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import ps.exalt.facebook.Util.Network.API.Comment;
 import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostLike;
 import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.DataSource;
 
@@ -41,6 +42,11 @@ public class LocalDataSource extends DataSource {
 
     @Override
     public Observable<Post> postPost(String username, Post post) {
+        return null;
+    }
+
+    @Override
+    public Observable<PostLike> likePost(PostLike postLike) {
         return null;
     }
 

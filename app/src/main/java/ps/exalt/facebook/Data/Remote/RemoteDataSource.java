@@ -7,6 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ps.exalt.facebook.Util.Network.API.Comment;
 import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostLike;
 import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.DataSource;
 import ps.exalt.facebook.Util.Network.RetrofitInterface;
@@ -41,10 +42,11 @@ public class RemoteDataSource extends DataSource {
 
     @Override
     public Observable<List<Comment>> getComments(long postId) {
-        Observable<List<Comment>> commentsObservable = api.getComments(postId);
-        commentsObservable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-        return commentsObservable;
+//        Observable<List<Comment>> commentsObservable = api.getComments(postId);
+//        commentsObservable.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread());
+//        return commentsObservable;
+    return null;
     }
 
     @Override
@@ -54,13 +56,19 @@ public class RemoteDataSource extends DataSource {
 
     @Override
     public Observable<List<User>> getUsers() {
-        return api.getUsers();
+//        return api.getUsers();
+   return null;
     }
 
 
     @Override
     public Observable<Post> postPost(String username,Post post) {
        return api.postPost(username,post);
+    }
+
+    @Override
+    public Observable<PostLike> likePost(PostLike postLike) {
+        return api.likePost(postLike);
     }
 
     @Override

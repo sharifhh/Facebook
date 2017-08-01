@@ -19,21 +19,23 @@ import retrofit2.http.Path;
 
 public interface RetrofitInterface {
 
-
-    @GET("/exalt/users")
-    Observable<List<User>> getUsers();
-
-    @GET("/exalt/users")
+    @POST("/exalt/users")
     Observable<Boolean> getToken(@Body String username,@Body String password);
+
+    @GET("/exalt/users/{user}/posts/{limit}/{offset}")
+    Observable<List<Post>> getPosts(@Path("user") String username,@Path("limit") String limit,@Path("offset") String offset);
+
+    @GET("/exalt/users/{user}/posts")
+    Observable<List<Post>> getPosts(@Path("user") String username);
+
+    @POST("/exalt/users/sharif/posts/1/postReaction")
+    Observable<PostLike> likePost(@Body PostLike postLike);
 
     @GET("/exalt/posts")
     Observable<List<Post>> getPosts();
 
-    @GET("/exalt/posts/{user}")
-    Observable<List<Post>> getUserPosts(@Path("user") String username);
-
-    @GET("/exalt/comments/{postID}")
-    Observable<List<Comment>> getComments(@Path("postID") Long postID);
+    @GET("/exalt/posts/{limit}/{offset}")
+    Observable<List<Post>> getPosts(@Path("limit") String limit,@Path("offset") String offset);
 
     @GET("/exalt/postlikes/{postID}")
     Observable<List<PostLike>> getPostLikes(@Path("postID") Long postID);

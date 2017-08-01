@@ -5,6 +5,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import ps.exalt.facebook.Util.Network.API.Comment;
 import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostLike;
 import ps.exalt.facebook.Util.Network.API.User;
 
 /**
@@ -25,6 +26,7 @@ public abstract class DataSource {
 
     public abstract Observable<Post> postPost(String username, Post post);
 
+    public abstract Observable<PostLike> likePost(PostLike postLike);
 
     public abstract Observable<Boolean> getToken(String username, String password);
 }
