@@ -7,43 +7,94 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Post {
-    long timeCreation;
+    long TimeCreation;
     long postid;
+    byte[] Image;
+    String content;
+    String location;
+    String onlyme;
+    long numComments;
+    long numLikes;
+    long numDisLikes;
+    int myStatus;
 
-    private String email;
-    private String phone;
-
-    public String getEmail() {
-        return email;
+    public long getTimeCreation() {
+        return TimeCreation;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTimeCreation(long timeCreation) {
+        TimeCreation = timeCreation;
     }
 
-    public String getPhone() {
-        return phone;
+    public long getPostid() {
+        return postid;
     }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-
 
     public void setPostid(long postid) {
         this.postid = postid;
     }
 
-    public long getTimeCreation() {
-        return timeCreation;
+    public byte[] getImage() {
+        return Image;
     }
 
-    public void setTimeCreation(long timeCreation) {
-        this.timeCreation = timeCreation;
+    public void setImage(byte[] image) {
+        Image = image;
     }
 
-    public long getPostid() {
-        return postid;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getOnlyme() {
+        return onlyme;
+    }
+
+    public void setOnlyme(String onlyme) {
+        this.onlyme = onlyme;
+    }
+
+    public long getNumComments() {
+        return numComments;
+    }
+
+    public void setNumComments(long numComments) {
+        this.numComments = numComments;
+    }
+
+    public long getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(long numLikes) {
+        this.numLikes = numLikes;
+    }
+
+    public long getNumDisLikes() {
+        return numDisLikes;
+    }
+
+    public void setNumDisLikes(long numDisLikes) {
+        this.numDisLikes = numDisLikes;
+    }
+
+    public int getMyStatus() {
+        return myStatus;
+    }
+
+    public void setMyStatus(int myStatus) {
+        this.myStatus = myStatus;
     }
 }

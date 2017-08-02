@@ -1,4 +1,4 @@
-package ps.exalt.facebook.Util.Network;
+package ps.exalt.facebook.Util.Network.Retrofit;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;

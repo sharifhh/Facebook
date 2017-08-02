@@ -3,12 +3,13 @@ package ps.exalt.facebook.Data;
 import java.util.List;
 
 import io.reactivex.Observable;
-import ps.exalt.facebook.Util.Network.API.Comment;
-import ps.exalt.facebook.Util.Network.API.Post;
-import ps.exalt.facebook.Util.Network.API.PostLike;
-import ps.exalt.facebook.Util.Network.API.User;
 import ps.exalt.facebook.Data.Local.LocalDataSource;
 import ps.exalt.facebook.Data.Remote.RemoteDataSource;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.CommentReaction;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostReaction;
+import ps.exalt.facebook.Util.Network.API.User;
 
 /**
  * Created by Sharif on 7/26/2017.
@@ -18,6 +19,7 @@ public class DataRepository {
     private static DataRepository dataRepository;
     private DataSource remoteDataSource;
     private DataSource localDataSource;
+    private Boolean remote = false;
 
     private DataRepository() {
         this.remoteDataSource = RemoteDataSource.getInstance();
@@ -31,59 +33,62 @@ public class DataRepository {
         return dataRepository;
     }
 
-    public Observable<List<Post>> getPosts(int page) {
-        Observable<List<Post>> postsObservable;
-        if (true) {
-            postsObservable = remoteDataSource.getPosts(page);
-        } else {
-            postsObservable = localDataSource.getPosts(page);
-        }
-        return postsObservable;
+    public Observable<Boolean> getToken(String username, String password) {
+        return null;
     }
 
-    public Observable<List<Comment>> getComments(final Post post) {
-        Observable<List<Comment>> commentsObservable;
-        if (true) {
-            commentsObservable = remoteDataSource.getComments(0);
-        } else {
-            commentsObservable = localDataSource.getComments(0);
-        }
-        return commentsObservable;
+    public Observable<User> getUser(String username) {
+        return null;
     }
 
-    public Observable<List<User>> getUsers() {
-        Observable<List<User>> usersObservable;
-        if (true) {
-            usersObservable = remoteDataSource.getUsers();
-        } else {
-            usersObservable = localDataSource.getUsers();
-        }
-        return usersObservable;
+    public Observable<User> addUser(User user) {
+        return null;
     }
 
+    public Observable<User> updateUser(User user) {
+        return null;
+    }
 
+    public Observable<List<Post>> getPosts(String username, String limit, String offset) {
+        return null;
+    }
 
-    public Observable<Post> postPost(String username, Post post) {
-        Observable<Post> postObservable;
-        if (true) {
-            postObservable = remoteDataSource.postPost(username, post);
-        } else {
-            postObservable = localDataSource.postPost(username, post);
-        }
-        return postObservable;
+    public Observable<List<Post>> getPosts(String username) {
+        return null;
     }
-    public Observable<Boolean> getToken(String username,String password){
-        Observable<Boolean> tokenObservable;
-        if (true) {
-            tokenObservable = remoteDataSource.getToken(username, password);
-        } else {
-            tokenObservable = localDataSource.getToken(username, password);
-        }
-        return tokenObservable;
+
+    public Observable<Post> addPost(String username, Post post) {
+        return null;
     }
-    public Observable<PostLike> likePost(PostLike postLike){
-        return remoteDataSource.likePost(postLike);
+
+    public Observable<Void> deletePost(long postId) {
+        return null;
     }
+
+    public Observable<PostReaction> reactPost(String username, long postId, PostReaction postReaction) {
+        return null;
+    }
+
+    public Observable<Comment> addComment(String username, long postId, Comment comment) {
+        return null;
+    }
+
+    public Observable<Void> deleteComment(long commentId) {
+        return null;
+    }
+
+    public Observable<List<Comment>> getComments(String username, long postId, String limit, String offset) {
+        return null;
+    }
+
+    public Observable<List<Comment>> getComments(String username, long postId) {
+        return null;
+    }
+
+    public Observable<CommentReaction> reactComment(String username, long postId, CommentReaction commentReaction) {
+        return null;
+    }
+
     public void destroyInstance() {
         dataRepository = null;
     }

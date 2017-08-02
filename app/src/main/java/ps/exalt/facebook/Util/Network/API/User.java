@@ -8,13 +8,13 @@ import java.sql.Date;
 
 public class User {
     UserID id;
-    String password;
-    long timeCreation;
-    String firstName;
-    String lastName;
-    String gender;
-    Date birthday;
-    byte[] picture;
+    String Password;
+    long TimeCreation;
+    String FirstName;
+    String LastName;
+    String Gender;
+    Date Birthday;
+    byte[] Picture;
 
     public UserID getId() {
         return id;
@@ -25,58 +25,58 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
     public long getTimeCreation() {
-        return timeCreation;
+        return TimeCreation;
     }
 
     public void setTimeCreation(long timeCreation) {
-        this.timeCreation = timeCreation;
+        TimeCreation = timeCreation;
     }
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        FirstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        Gender = gender;
     }
 
     public Date getBirthday() {
-        return birthday;
+        return Birthday;
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+        Birthday = birthday;
     }
 
     public byte[] getPicture() {
-        return picture;
+        return Picture;
     }
 
     public void setPicture(byte[] picture) {
-        this.picture = picture;
+        Picture = picture;
     }
 }

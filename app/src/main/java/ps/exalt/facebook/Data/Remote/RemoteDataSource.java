@@ -3,17 +3,19 @@ package ps.exalt.facebook.Data.Remote;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import ps.exalt.facebook.Util.Network.API.Comment;
-import ps.exalt.facebook.Util.Network.API.Post;
-import ps.exalt.facebook.Util.Network.API.PostLike;
-import ps.exalt.facebook.Util.Network.API.User;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import ps.exalt.facebook.Data.DataSource;
-import ps.exalt.facebook.Util.Network.RetrofitInterface;
+import ps.exalt.facebook.Util.Network.API.Comment;
+import ps.exalt.facebook.Util.Network.API.CommentReaction;
+import ps.exalt.facebook.Util.Network.API.Post;
+import ps.exalt.facebook.Util.Network.API.PostReaction;
+import ps.exalt.facebook.Util.Network.API.User;
+import ps.exalt.facebook.Util.Network.Retrofit.RetrofitInterface;
+import ps.exalt.facebook.Util.Network.Retrofit.RxErrorHandlingCallAdapterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import ps.exalt.facebook.Util.Network.RxErrorHandlingCallAdapterFactory;
+
 /**
  * Created by Sharif on 7/26/2017.
  */
@@ -25,11 +27,26 @@ public class RemoteDataSource extends DataSource {
 
     private RemoteDataSource() {
         super();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(chain -> {
+            Request original = chain.request();
+
+            Request request = original.newBuilder()
+                    .header("Accept", "application/vnd.yourapi.v1.full+json")
+                    .method(original.method(), original.body())
+                    .build();
+
+            return chain.proceed(request);
+
+        });
+        OkHttpClient client = httpClient.build();
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.204.39:8080/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create())
+                .client(client)
                 .build();
+
         api = retrofit.create(RetrofitInterface.class);
     }
 
@@ -41,39 +58,73 @@ public class RemoteDataSource extends DataSource {
     }
 
     @Override
-    public Observable<List<Comment>> getComments(long postId) {
-//        Observable<List<Comment>> commentsObservable = api.getComments(postId);
-//        commentsObservable.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread());
-//        return commentsObservable;
-    return null;
-    }
-
-    @Override
-    public Observable<List<Post>> getPosts(int page) {
-        return api.getPosts();
-    }
-
-    @Override
-    public Observable<List<User>> getUsers() {
-//        return api.getUsers();
-   return null;
-    }
-
-
-    @Override
-    public Observable<Post> postPost(String username,Post post) {
-       return api.postPost(username,post);
-    }
-
-    @Override
-    public Observable<PostLike> likePost(PostLike postLike) {
-        return api.likePost(postLike);
-    }
-
-    @Override
     public Observable<Boolean> getToken(String username, String password) {
-        return api.getToken(username,password);
+        return api.getToken(username, password);
+    }
+
+    @Override
+    public Observable<User> getUser(String username) {
+        return api.getUser(username);
+    }
+
+    @Override
+    public Observable<User> addUser(User user) {
+        return api.addUser(user);
+    }
+
+    @Override
+    public Observable<User> updateUser(User user) {
+        return api.updateUser(user);
+    }
+
+    @Override
+    public Observable<List<Post>> getPosts(String username, String limit, String offset) {
+        return api.getPosts(username, limit, offset);
+    }
+
+    @Override
+    public Observable<List<Post>> getPosts(String username) {
+        return api.getPosts(username);
+    }
+
+    @Override
+    public Observable<Post> addPost(String username, Post post) {
+        return api.addPost(username, post);
+    }
+
+    @Override
+    public Observable<Void> deletePost(long postId) {
+        return api.deletePost(postId);
+    }
+
+    @Override
+    public Observable<PostReaction> reactPost(String username, long postId, PostReaction postReaction) {
+        return api.reactPost(username, postId, postReaction);
+    }
+
+    @Override
+    public Observable<Comment> addComment(String username, long postId, Comment comment) {
+        return api.addComment(username, postId, comment);
+    }
+
+    @Override
+    public Observable<Void> deleteComment(long commentId) {
+        return api.deleteComment(commentId);
+    }
+
+    @Override
+    public Observable<List<Comment>> getComments(String username, long postId, String limit, String offset) {
+        return api.getComments(username, postId, limit, offset);
+    }
+
+    @Override
+    public Observable<List<Comment>> getComments(String username, long postId) {
+        return api.getComments(username, postId);
+    }
+
+    @Override
+    public Observable<CommentReaction> reactComment(String username, long postId, CommentReaction commentReaction) {
+        return api.reactComment(username, postId, commentReaction);
     }
 
 }

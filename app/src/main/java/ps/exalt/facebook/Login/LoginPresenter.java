@@ -23,12 +23,12 @@ public class LoginPresenter {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(aBoolean -> {
-                        if (true) {
+                        if (aBoolean) {
                             loginView.loginSuccess();
                         } else {
                             loginView.loginFailed();
                         }
-                    });
+                    }, throwable -> loginView.loginFailed());
         } else {
             loginView.validateFail();
         }

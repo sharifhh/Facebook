@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Created by Sharif on 7/26/2017.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostLike {
-
+public class PostReaction {
+    long postReactionId;
     String type;
     public String getType() {
         return type;
@@ -17,4 +17,11 @@ public class PostLike {
         this.type = type;
     }
 
+    public long getPostReactionId() {
+        return postReactionId;
+    }
+
+    public void setPostReactionId(long postReactionId) {
+        this.postReactionId = postReactionId;
+    }
 }
