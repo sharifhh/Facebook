@@ -8,8 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import ps.exalt.facebook.Home.HomeActivity;
-import ps.exalt.facebook.Login.LoginActivity;
+import ps.exalt.facebook.home.HomeActivity;
 
 /**
  * Created by Sharif on 7/26/2017.

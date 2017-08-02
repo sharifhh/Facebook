@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        tools:context="ps.exalt.facebook.Home.HomeActivity"
+        tools:context="ps.exalt.facebook.home.HomeActivity"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         >
@@ -82,7 +82,9 @@
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:src="@drawable/ic_edit_black_24dp"
         app:backgroundTint="@android:color/background_light"
-        app:rippleColor="@android:color/background_light" />
+        app:rippleColor="@android:color/background_light"
+        app:layout_anchorGravity="right|center"
+        app:layout_anchor="@+id/viewPager" />
 
 
 

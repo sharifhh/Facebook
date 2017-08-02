@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +16,7 @@ import android.widget.ListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ps.exalt.facebook.Home.HomeActivity;
+import ps.exalt.facebook.home.HomeActivity;
 
 public class CommentsActivity extends AppCompatActivity {
 
