@@ -7,8 +7,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,9 +18,15 @@ import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +37,7 @@ import butterknife.ButterKnife;
 import ps.exalt.facebook.Home.Util.HidingScroling;
 import ps.exalt.facebook.Home.Util.HomeRecyclerViewAdapter;
 import ps.exalt.facebook.R;
+import ps.exalt.facebook.SplashActivity;
 import ps.exalt.facebook.Util.Network.API.Post;
 
 
@@ -41,14 +50,17 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
 
     @BindView(R.id.recycler_view1)
     RecyclerView recyclerView;
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.app)
-    AppBarLayout tool;
+//    @BindView(R.id.cam)
+//    ImageButton camera;
+//    @BindView(R.id.msg)
+//   ImageButton msge;
+//    @BindView(R.id.ser)
+//    ImageView search_image;
+//    @BindView(R.id.search)
+//    EditText search_text;
 
     static List<Post> posts = new ArrayList<>();
     HomeRecyclerViewAdapter rvAdapter;
-
 
 
     public static PostFragment newInstance(int position, List<Post> posts) {
@@ -72,26 +84,27 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
         super.onViewCreated(view, savedInstanceState);
 
 
-
-
+        Window window = getActivity().getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.mycolor));
 
         rvAdapter = new HomeRecyclerViewAdapter(getActivity(), posts, this);
         recyclerView.setAdapter(rvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addOnScrollListener(new HidingScroling() {
-            @Override
-            public void onHide() {
-                hideViews();
-            }
-
-            @Override
-            public void onShow() {
-                showViews();
-            }
-        });
+//        recyclerView.addOnScrollListener(new HidingScroling() {
+//            @Override
+//            public void onHide() {
+//                hideViews();
+//            }
+//
+//            @Override
+//            public void onShow() {
+//                showViews();
+//            }
+//        });
 
     }
-
 
 
     public void refresh() {
@@ -99,18 +112,30 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
     }
 
 
-    private void hideViews() {
+//    private void hideViews() {
+//
+//        mToolbar.setVisibility(View.GONE);
+//        camera.setVisibility(View.GONE);
+//        msge.setVisibility(View.GONE);
+//        search_text.setVisibility(View.GONE);
+//        search_image.setVisibility(View.GONE);
+//        // Hide status bar
+//    /*    Window window = getActivity().getWindow();
+//       window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+//
+//
+//    }
 
-        mToolbar.animate().translationY(-mToolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2));
-        tool.animate().translationY(-tool.getHeight()).setInterpolator(new AccelerateInterpolator(2));
-
-    }
-
-    private void showViews() {
-        mToolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-        tool.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-
-    }
+//    private void showViews() {
+//        mToolbar.setVisibility(View.VISIBLE);
+//        camera.setVisibility(View.VISIBLE);
+//        msge.setVisibility(View.VISIBLE);
+//        search_image.setVisibility(View.VISIBLE);
+//        search_text.setVisibility(View.VISIBLE);
+//      /*  Window window = getActivity().getWindow();
+//       window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+//
+//    }
 
 
 }
