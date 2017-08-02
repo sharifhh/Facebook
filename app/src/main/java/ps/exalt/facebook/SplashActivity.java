@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(ContextCompat.getColor(SplashActivity.this, R.color.cardview_light_background));
         new Handler().postDelayed(() -> {
-            Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(i);
             finish();
         }, SPLASH_TIME_OUT);

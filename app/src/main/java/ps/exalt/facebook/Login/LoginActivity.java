@@ -4,9 +4,14 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -29,7 +34,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     EditText emailEditText;
     @BindView(R.id.password_edit_text)
     EditText passwordEditText;
-
+    @BindView(R.id.imageButton3)
+    ImageButton pic;
+    @BindView(R.id.login_button)
+    Button log;
+    @BindView(R.id.reg)
+    Button reg;
     LoginPresenter loginPresenter;
     ProgressDialog progressDialog;
 
@@ -38,6 +48,24 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        final ViewGroup transitionsContainer = (ViewGroup)findViewById(R.id.transitions_container);
+
+       pic.setOnClickListener(new View.OnClickListener() {
+
+            boolean visible;
+
+            @Override
+            public void onClick(View v) {
+                TransitionManager.beginDelayedTransition(transitionsContainer);
+                visible = !visible;
+               emailEditText.setVisibility(visible ? View.VISIBLE : View.GONE);
+               passwordEditText.setVisibility(visible ? View.VISIBLE : View.GONE);
+                log.setVisibility(visible ? View.VISIBLE : View.GONE);
+              reg.setVisibility(visible ? View.VISIBLE : View.GONE);
+
+            }
+
+        });
         loginPresenter = new LoginPresenter(this);
         PostLike postLike = new PostLike();
         postLike.setType("like");
