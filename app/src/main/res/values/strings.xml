@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Facebook</string>
+    <string name="username">Username</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="create_an_acount">Create An Acount ?</string>
+    <string name="login">LOGIN</string>
 </resources>

@@ -1,4 +1,4 @@
-package ps.exalt.facebook.data.Remote;
+package ps.exalt.facebook.data.remote;
 
 import java.util.List;
 
