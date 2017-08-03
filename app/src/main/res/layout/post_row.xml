@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
 
         android:background="?android:selectableItemBackground"
         android:padding="10dp">
@@ -71,10 +71,9 @@
             android:id="@+id/linearLayout2"
             android:layout_width="450dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/post_area"
             android:layout_below="@+id/post_area"
-            android:layout_marginBottom="24dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/btn"
             android:orientation="horizontal"
@@ -86,17 +85,17 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/btn"
+                android:background="@color/cardview_light_background"
                 android:src="@drawable/ic_thumb_up_black_24dp" />
             />
 
             <ImageButton
                 android:id="@+id/comment_btn"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/btn"
+                android:background="@color/cardview_light_background"
                 android:src="@drawable/ic_comment_black_24dp" /><![CDATA[
 
             />
@@ -108,10 +107,11 @@
             android:id="@+id/close_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/btn"
+            android:layout_alignBottom="@+id/txt_name"
 
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn"
             card_view:srcCompat="@drawable/ic_close_black_24dp" />
 
 

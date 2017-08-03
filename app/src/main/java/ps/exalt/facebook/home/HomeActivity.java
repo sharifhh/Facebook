@@ -73,6 +73,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.floatingActionButton)
     void floatingActionButtonClicked() {
+
         Navigator.navigateToPost(this);
     }
 }

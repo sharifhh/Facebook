@@ -70,6 +70,10 @@ public class CommentsActivity extends AppCompatActivity {
     public void close() {
         Navigator.navigateToHome(this);
     }
+    @OnClick(R.id.button2)
+    public void post() {
+        Navigator.navigateToHome(this);
+    }
 
 
 }

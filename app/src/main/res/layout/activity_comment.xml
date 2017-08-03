@@ -11,12 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/editText3"
-        android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/editText3"
-        android:background="@drawable/btn"
+        android:background="@drawable/back"
         android:enabled="false"
         android:text="@string/post"
-        android:textColor="#f7f7f7" />
+        android:textColor="@color/write" />
 
     <EditText
         android:id="@+id/editText3"
