@@ -14,8 +14,7 @@
         android:layout_above="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="78dp"
-        android:src="@drawable/download"
-        android:contentDescription="TODO" />
+        android:src="@drawable/download" />
 
     <EditText
         android:id="@+id/email_edit_text"
@@ -26,7 +25,7 @@
         android:layout_below="@+id/textView2"
         android:layout_marginTop="84dp"
         android:background="@color/cardview_light_background"
-        android:hint="email@example.com"
+        android:hint="@string/e_mail"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -38,7 +37,7 @@
         android:layout_marginTop="33dp"
         android:background="@color/cardview_light_background"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <TextView
@@ -65,11 +64,11 @@
         android:background="@color/cardview_light_background"
         android:clickable="true"
         android:focusable="true"
-        android:text="LOGIN"
+        android:text="@string/login"
         android:textColor="@color/mycolor" />
 
     <Button
-        android:id="@+id/reg"
+        android:id="@+id/login_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -77,7 +76,7 @@
         android:layout_below="@+id/login_button"
         android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
-        android:text="Create An Acount ?"
+        android:text="@string/create_an_acount"
         android:textColor="@android:color/background_light" />
 
     <TextView
@@ -86,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/reg" />
+        android:layout_below="@+id/login_reg" />
 
 </RelativeLayout>
 

@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ps.exalt.facebook.register.RegisterActivity">
+        <EditText
+            android:id="@+id/reg_user"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            android:layout_marginTop="80dp"
+            android:layout_centerHorizontal="true"/>
 
-</android.support.constraint.ConstraintLayout>
+        <EditText
+            android:id="@+id/reg_firstname"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:layout_below="@id/reg_user"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/reg_lastname"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:layout_below="@id/reg_firstname"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/reg_email"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:layout_below="@id/reg_lastname"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/reg_password"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:layout_below="@id/reg_email"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:id="@+id/reg_registration_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:layout_below="@id/reg_password"
+            android:layout_marginTop="50dp"
+            android:layout_alignStart="@+id/reg_password"
+            android:layout_alignEnd="@+id/reg_password" />
+
+</RelativeLayout>

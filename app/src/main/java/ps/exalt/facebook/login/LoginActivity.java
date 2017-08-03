@@ -33,13 +33,18 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @OnClick(R.id.login_button)
-    public void loginTapped(View view) {
+    public void loginButtonTapped() {
         progressDialog = ProgressDialog.show(this, "Logging in ...", "Please Wait");
         new Handler().postDelayed(() -> {
             String email = emailEditText.getText().toString();
             String password = passwordEditText.getText().toString();
             loginPresenter.submitLogin(email, password);
         },2000);
+    }
+
+    @OnClick(R.id.login_reg)
+    public void registrationButtonClicked(){
+        Navigator.navigateToRegister(this);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ps.exalt.facebook.data.Local;
+package ps.exalt.facebook.data.local;
 
 import java.util.List;
 
