@@ -18,8 +18,8 @@ public class PostsActivity extends AppCompatActivity {
     String[] mobileArray = {"Android", "IPhone"};
     @BindView(R.id.post_area)
     EditText post_area;
-    @BindView(R.id.button2)
-    Button close;
+//    @BindView(R.id.button2)
+//    Button close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

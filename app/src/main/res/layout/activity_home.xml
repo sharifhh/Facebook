@@ -72,17 +72,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="263dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginBottom="100dp"
         android:adjustViewBounds="false"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:src="@drawable/ic_edit_black_24dp"
         app:backgroundTint="@android:color/background_light"
         app:layout_anchor="@+id/viewPager"
-        app:layout_anchorGravity="right|center"
+        app:layout_anchorGravity="right|bottom"
         app:rippleColor="@android:color/background_light" />
 </android.support.design.widget.CoordinatorLayout>
 
