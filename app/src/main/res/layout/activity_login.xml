@@ -17,63 +17,53 @@
 
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/login_image_button"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@color/cardview_light_background"
             app:srcCompat="@drawable/ic_people_black_24dp" />
 
         <EditText
-            android:id="@+id/password_edit_text"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/email_edit_text"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="33dp"
-            android:background="@color/cardview_light_background"
-            android:ems="10"
-            android:hint="Password"
-            android:visibility="gone"
-            android:inputType="textPassword" />
-
-        <EditText
             android:id="@+id/email_edit_text"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_alignEnd="@+id/password_edit_text"
-            android:layout_alignLeft="@+id/password_edit_text"
-            android:layout_alignRight="@+id/password_edit_text"
-            android:layout_alignStart="@+id/password_edit_text"
-            android:layout_below="@+id/textView2"
             android:layout_marginTop="84dp"
+            android:inputType="textEmailAddress"
             android:background="@color/cardview_light_background"
-            android:hint="email@example.com"
+            android:hint="@string/e_mail"
             android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/password_edit_text"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="33dp"
+            android:background="@color/cardview_light_background"
+            android:ems="10"
+            android:hint="@string/password"
+            android:visibility="gone"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/password_edit_text"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="84dp"
             android:background="@color/cardview_light_background"
             android:clickable="true"
             android:focusable="true"
-            android:text="LOGIN"
+            android:text="@string/login"
             android:visibility="gone"
             android:textColor="@color/mycolor" />
 
         <Button
-            android:id="@+id/reg"
+            android:id="@+id/login_reg_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/login_button"
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
-            android:text="Create An Acount ?"
+            android:text="@string/create_an_acount"
             android:textColor="@android:color/background_light" />
 
     </LinearLayout>

@@ -2,10 +2,7 @@ package ps.exalt.facebook;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
-import android.view.WindowManager;
 
 import ps.exalt.facebook.util.Navigator;
 
@@ -19,12 +16,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Window window = SplashActivity.this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(SplashActivity.this, R.color.cardview_light_background));
         new Handler().postDelayed(() -> {
-            Navigator.navigateToLogin(this);
+            Navigator.navigateToHome(this);
             finish();
         }, SPLASH_TIME_OUT);
     }

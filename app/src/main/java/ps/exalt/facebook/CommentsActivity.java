@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ps.exalt.facebook.home.HomeActivity;
+import ps.exalt.facebook.util.Navigator;
 
 public class CommentsActivity extends AppCompatActivity {
 
@@ -38,21 +39,10 @@ public class CommentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comment);
         ButterKnife.bind(this);
         overridePendingTransition(R.anim.myanimation, R.anim.myanimation);
-
-      /*  EditText comment=(EditText)findViewById(R.id.editText3);
-        Button post=(Button)findViewById(R.id.button2);
-        ImageButton close =(ImageButton)findViewById(R.id.imageButton);*/
-        // Get a handle to the list view
-
-
-        // Convert ArrayList to array
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.comment_listt, mobileArray);
-
         ListView listView = (ListView) findViewById(R.id.comment_list);
         listView.setAdapter(adapter);
-
-
         comment.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence str, int start, int count, int after) {
@@ -61,34 +51,24 @@ public class CommentsActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence str, int start, int before, int count) {
-
             }
-
             @Override
             public void afterTextChanged(Editable str) {
-
                 if (!comment.getText().toString().isEmpty()) {
-
                     post.setTextColor(ContextCompat.getColor(CommentsActivity.this, R.color.mycolor));
+                    post.setEnabled(true);
                 }
                 else if (comment.getText().toString().isEmpty()) {
-
                     post.setTextColor(ContextCompat.getColor(CommentsActivity.this, R.color.type));
+                    post.setEnabled(false);
                 }
             }
         });
-
-// keyboard
-
-        // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
-        );
     }
 
     @OnClick(R.id.imageButton)
-
     public void close() {
-        startActivity(new Intent(CommentsActivity.this, HomeActivity.class));
+        Navigator.navigateToHome(this);
     }
 
 
