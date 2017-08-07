@@ -17,6 +17,7 @@ public class Post {
     long numLikes;
     long numDisLikes;
     int myStatus;
+    User user;
 
     public long getTimeCreation() {
         return TimeCreation;
@@ -96,5 +97,13 @@ public class Post {
 
     public void setMyStatus(int myStatus) {
         this.myStatus = myStatus;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

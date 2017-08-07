@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 
 import ps.exalt.facebook.PostsActivity;
-import ps.exalt.facebook.home.HomeActivity;
-import ps.exalt.facebook.login.LoginActivity;
-import ps.exalt.facebook.register.RegisterActivity;
+import ps.exalt.facebook.presenation.home.HomeActivity;
+import ps.exalt.facebook.presenation.login.LoginActivity;
+import ps.exalt.facebook.presenation.register.RegisterActivity;
 
 /**
  * Created by Sharif on 8/1/2017.

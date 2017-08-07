@@ -1,4 +1,4 @@
-package ps.exalt.facebook.home;
+package ps.exalt.facebook.presenation.home;
 
 import ps.exalt.facebook.data.DataRepository;
 

@@ -1,4 +1,4 @@
-package ps.exalt.facebook.login;
+package ps.exalt.facebook.presenation.login;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -19,16 +19,17 @@ public class LoginPresenter {
 
     public void submitLogin(String email, String password) {
         if (validateCredentials(email, password)) {
-            dataRepository.getToken(email, password)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(aBoolean -> {
-                        if (aBoolean) {
-                            loginView.loginSuccess();
-                        } else {
-                            loginView.loginFailed();
-                        }
-                    }, throwable -> loginView.loginFailed());
+            loginView.loginSuccess();
+//            dataRepository.getToken(email, password)
+//                    .subscribeOn(Schedulers.io())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe(aBoolean -> {
+//                        if (aBoolean) {
+//                            loginView.loginSuccess();
+//                        } else {
+//                            loginView.loginFailed();
+//                        }
+//                    }, throwable -> loginView.loginFailed());
         } else {
             loginView.validateFail();
         }

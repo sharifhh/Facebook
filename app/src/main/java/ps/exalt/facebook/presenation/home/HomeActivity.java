@@ -1,4 +1,4 @@
-package ps.exalt.facebook.home;
+package ps.exalt.facebook.presenation.home;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ps.exalt.facebook.R;
-import ps.exalt.facebook.home.util.HomeViewPagerAdapter;
+import ps.exalt.facebook.presenation.home.util.HomeViewPagerAdapter;
 import ps.exalt.facebook.util.Navigator;
 
 

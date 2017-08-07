@@ -1,8 +1,6 @@
-package ps.exalt.facebook.register;
+package ps.exalt.facebook.presenation.register;
 
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import ps.exalt.facebook.data.DataRepository;
 import ps.exalt.facebook.util.network.api.User;
@@ -32,39 +30,17 @@ public class RegisterPresenter {
             dataRepository.addUser(newUser)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<User>() {
-                        @Override
-                        public void onSubscribe(Disposable d) {
-
-                        }
-
-                        @Override
-                        public void onNext(User user) {
-                            registerView.registerSuccess();
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-                            if (e instanceof RetrofitException) {
-                                if (((RetrofitException) e).getResponse().code() == 409)
-                                    registerView.duplicatedUser();
-                            } else
-                                registerView.registerFailed();
-                        }
-
-                        @Override
-                        public void onComplete() {
-
-                        }
+                    .subscribe(user -> registerView.registerSuccess(), throwable -> {
+                        if (throwable instanceof RetrofitException) {
+                            if (((RetrofitException) throwable).getResponse().code() == 409)
+                                registerView.duplicatedUser();
+                        } else
+                            registerView.registerFailed();
                     });
         }
     }
 
     private boolean validate(String toBeValidated, int minimum) {
-        if (!(toBeValidated.length() > minimum)) {
-            return false;
-        } else {
-            return true;
-        }
+        return ((toBeValidated.length() > minimum));
     }
 }

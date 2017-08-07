@@ -1,4 +1,4 @@
-package ps.exalt.facebook.home.util;
+package ps.exalt.facebook.presenation.home.util;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ps.exalt.facebook.CommentsActivity;
-import ps.exalt.facebook.home.HomeActivity;
+import ps.exalt.facebook.presenation.home.HomeActivity;
 import ps.exalt.facebook.util.network.api.Post;
 import ps.exalt.facebook.R;
 
@@ -40,6 +42,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
    public HomeRecyclerViewAdapter(Context context, List<Post> posts, RecyclerViewAdapterCalls callbacks) {
         this.context = context;
         this.posts= posts;
+       Log.d("postsssssssss",posts.get(0).getPostid() + "");
         this.callbacks = callbacks;
         inflater = LayoutInflater.from(context);
     }
@@ -53,16 +56,19 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-      holder.user_name.setText("Mais abu helou");//posts.get(position).getName());
-       holder.date.setText("2 hours ago ");//posts.get(position).getDate());
-        holder.post.setText("Welcome all");
+
+       holder.user_name.setText(posts.get(position).getUser().getFirstName() + posts.get(position).getUser().getLastName());//posts.get(position).getName());
+       Date date = new Date(posts.get(position).getTimeCreation());
+
+        holder.date.setText(date.toString());//posts.get(position).getDate());
+        holder.post.setText(posts.get(position).getContent());
     //    Picasso.with(context).load("http://i.imgut.com/DvpvklR.png").transform(new CropCircleTransformation()).into(holder.pic);
      //   holder.icon.setImageResource(contacts.get(position).getFavIcon());
     }
 
     @Override
     public int getItemCount() {
-        return 10;//contacts.size();
+        return posts.size();//contacts.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

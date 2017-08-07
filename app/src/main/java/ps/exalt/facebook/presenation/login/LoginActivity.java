@@ -1,4 +1,4 @@
-package ps.exalt.facebook.login;
+package ps.exalt.facebook.presenation.login;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ps.exalt.facebook.R;
 import ps.exalt.facebook.util.Navigator;
+import ps.exalt.facebook.util.UiUtils;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -59,11 +60,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.login_image_button)
     public void imageButtonClicked() {
         TransitionManager.beginDelayedTransition(transitionsContainer);
-        emailEditText.setVisibility(View.VISIBLE);
-        passwordEditText.setVisibility(View.VISIBLE);
-        loginButton.setVisibility(View.VISIBLE);
-        registerButton.setVisibility(View.VISIBLE);
+
+        UiUtils.setVisibility(View.VISIBLE, emailEditText, passwordEditText, loginButton, registerButton);
+
     }
+
 
     public void loginSuccess() {
         progressDialog.hide();

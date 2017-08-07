@@ -1,4 +1,4 @@
-package ps.exalt.facebook.register;
+package ps.exalt.facebook.presenation.register;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;

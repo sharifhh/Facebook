@@ -1,4 +1,4 @@
-package ps.exalt.facebook.home.fragments;
+package ps.exalt.facebook.presenation.home.fragments;
 
 import android.net.Uri;
 import android.os.Bundle;

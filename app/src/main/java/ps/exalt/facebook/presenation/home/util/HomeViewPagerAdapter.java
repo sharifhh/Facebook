@@ -1,12 +1,12 @@
-package ps.exalt.facebook.home.util;
+package ps.exalt.facebook.presenation.home.util;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import ps.exalt.facebook.home.fragments.FriendFragment;
-import ps.exalt.facebook.home.fragments.NotificationFragment;
-import ps.exalt.facebook.home.fragments.PostFragment;
+import ps.exalt.facebook.presenation.home.fragments.FriendFragment;
+import ps.exalt.facebook.presenation.home.fragments.NotificationFragment;
+import ps.exalt.facebook.presenation.home.fragments.PostFragment;
 
 /**
  * Created by Mais on 7/27/2017.

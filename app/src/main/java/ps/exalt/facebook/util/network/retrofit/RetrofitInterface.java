@@ -21,6 +21,7 @@ import retrofit2.http.Path;
 
 public interface RetrofitInterface {
 
+
     @POST("/exalt/users")
     Observable<Boolean> getToken(@Body String username, @Body String password);
 

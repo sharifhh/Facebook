@@ -1,16 +1,14 @@
-package ps.exalt.facebook.home.fragments;
+package ps.exalt.facebook.presenation.home.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,32 +16,32 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ps.exalt.facebook.home.util.HomeRecyclerViewAdapter;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import ps.exalt.facebook.R;
+import ps.exalt.facebook.data.DataRepository;
+import ps.exalt.facebook.presenation.home.util.HomeRecyclerViewAdapter;
 import ps.exalt.facebook.util.network.api.Post;
 
 
 public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.RecyclerViewAdapterCalls {
 
-    private boolean loading = true;
-    private Random random;
     public static final String KEY_POSITION = "KEY_POSITION";
+    List<Post> posts = new ArrayList<>();
     int pastVisiblesItems, visibleItemCount, totalItemCount;
-
     @BindView(R.id.recycler_view1)
     RecyclerView recyclerView;
-//    @BindView(R.id.cam)
+    HomeRecyclerViewAdapter homeRecyclerViewAdapter;
+    //    @BindView(R.id.cam)
 //    ImageButton camera;
 //    @BindView(R.id.msg)
-//   ImageButton msge;
+//    ImageButton msge;
 //    @BindView(R.id.ser)
 //    ImageView search_image;
 //    @BindView(R.id.search)
 //    EditText search_text;
-
-    static List<Post> posts = new ArrayList<>();
-    HomeRecyclerViewAdapter rvAdapter;
-
+    private boolean loading = true;
+    private Random random;
 
     public static PostFragment newInstance(int position, List<Post> posts) {
         PostFragment Myposts = new PostFragment();
@@ -60,20 +58,19 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
         return myView;
     }
 
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-        Window window = getActivity().getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.mycolor));
-
-        rvAdapter = new HomeRecyclerViewAdapter(getActivity(), posts, this);
-        recyclerView.setAdapter(rvAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        DataRepository.getInstance().getPosts("sharif")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(posts1 -> {
+                    posts.addAll(posts1);
+                    Log.d("Postsss",posts.get(0).getPostid() + "");
+                    homeRecyclerViewAdapter = new HomeRecyclerViewAdapter(getActivity(), posts, this);
+                    recyclerView.setAdapter(homeRecyclerViewAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                },throwable -> Log.d("Error",throwable.toString()));
 //        recyclerView.addOnScrollListener(new HidingScroling() {
 //            @Override
 //            public void onHide() {
@@ -85,12 +82,11 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
 //                showViews();
 //            }
 //        });
-
     }
 
 
     public void refresh() {
-        rvAdapter.notifyDataSetChanged();
+        homeRecyclerViewAdapter.notifyDataSetChanged();
     }
 
 
@@ -107,7 +103,7 @@ public class PostFragment extends Fragment implements HomeRecyclerViewAdapter.Re
 //
 //
 //    }
-
+//
 //    private void showViews() {
 //        mToolbar.setVisibility(View.VISIBLE);
 //        camera.setVisibility(View.VISIBLE);
