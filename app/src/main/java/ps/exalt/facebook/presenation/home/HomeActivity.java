@@ -45,6 +45,10 @@ public class HomeActivity extends AppCompatActivity {
         viewPager.setAdapter(homeViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+       tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
+        tabLayout.getTabAt(0).getIcon().setColorFilter(ContextCompat.getColor(HomeActivity.this, R.color.mycolor), PorterDuff.Mode.SRC_IN);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_public_black_24dp);
         tabLayout.addOnTabSelectedListener(
                 new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
 
