@@ -57,11 +57,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-       holder.user_name.setText(posts.get(position).getUser().getFirstName() + posts.get(position).getUser().getLastName());//posts.get(position).getName());
+       holder.user_name.setText("FFF");//posts.get(position).getUser().getFirstName() + posts.get(position).getUser().getLastName());//posts.get(position).getName());
        Date date = new Date(posts.get(position).getTimeCreation());
 
         holder.date.setText(date.toString());//posts.get(position).getDate());
-        holder.post.setText(posts.get(position).getContent());
+        holder.post.setText("DDD");//posts.get(position).getContent());
     //    Picasso.with(context).load("http://i.imgut.com/DvpvklR.png").transform(new CropCircleTransformation()).into(holder.pic);
      //   holder.icon.setImageResource(contacts.get(position).getFavIcon());
     }

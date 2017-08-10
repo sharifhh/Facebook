@@ -23,6 +23,8 @@ public class NotificationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActivity().overridePendingTransition(R.anim.myanimation, R.anim.myanimation);
+
 
     }
 

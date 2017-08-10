@@ -29,11 +29,11 @@ public class HomeViewPagerAdapter extends FragmentStatePagerAdapter {
                 return posts;
             case 1:
 
-                FriendFragment friends= new FriendFragment();
+                FriendFragment friends = new FriendFragment();
                 return friends;
             case 2:
 
-                NotificationFragment notifications =new NotificationFragment();
+                NotificationFragment notifications = new NotificationFragment();
                 return notifications;
         }
         return null;

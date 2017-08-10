@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(() -> {
-            Navigator.navigateToLogin(this);
+            Navigator.navigateToHome(this);
             finish();
         }, SPLASH_TIME_OUT);
     }

@@ -11,6 +11,7 @@ import ps.exalt.facebook.presenation.register.RegisterActivity;
 /**
  * Created by Sharif on 8/1/2017.
  */
+ 
 
 public class Navigator {
     public static void navigateToHome(Context context)
